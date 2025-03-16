@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,18 +17,28 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
-      - name: Verify Node.js & npm Version
-        run: |
-          node -v
-          npm -v
+          node-version: 20
 
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Tests
+      - name: Testing the Test Cases
         run: npm test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Deploying the Application
+        run: npm run build
+
 
 
 
