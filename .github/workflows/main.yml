@@ -19,6 +19,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Cache Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm 
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install Dependencies
         run: npm install
 
@@ -33,11 +39,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cache Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm 
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}  
+
       - name: Install Dependencies
         run: npm install
 
       - name: Deploying the Application
         run: npm run build
+
 
 
 
