@@ -1,0 +1,14 @@
+name: Deploy Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      run : git "https://github.com/mukeshphulwani66/starter-code-cicd.git"
