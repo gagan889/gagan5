@@ -1,9 +1,10 @@
 name: Deploy Application
 
-on:
+on: 
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -11,4 +12,5 @@ jobs:
 
     steps:
     - name: Checkout code
-      run : git clone "https://github.com/mukeshphulwani66/starter-code-cicd.git"
+      run: git clone "https://github.com/mukeshphulwani66/starter-code-cicd.git"
+
