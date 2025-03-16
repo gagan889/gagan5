@@ -17,16 +17,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
-      - name: Install Version
-        run: npm -v
+      - name: Verify Node.js & npm Version
+        run: |
+          node -v
+          npm -v
 
       - name: Install Dependencies
         run: npm install
 
       - name: Run Tests
-        run: npm  run test
+        run: npm test
+
 
 
 
