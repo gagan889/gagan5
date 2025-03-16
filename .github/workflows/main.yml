@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Checkout code
-      run : git "https://github.com/mukeshphulwani66/starter-code-cicd.git"
+      run : git clone "https://github.com/mukeshphulwani66/starter-code-cicd.git"
